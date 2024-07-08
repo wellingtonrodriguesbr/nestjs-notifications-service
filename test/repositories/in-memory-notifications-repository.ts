@@ -28,6 +28,10 @@ export class InMemoryNotificationsRepository
     return notification;
   }
 
+  async findManyByRecipientId(recipientId: string) {
+    return this.items.filter((item) => item.recipientId === recipientId);
+  }
+
   async countManyByRecipientId(recipientId: string) {
     return this.items.filter((item) => item.recipientId === recipientId).length;
   }
